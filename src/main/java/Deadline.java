@@ -1,6 +1,9 @@
+import java.util.Date;
+
 class Deadline extends Task{
-    private String deadlineBy;
-    Deadline(String taskDetails, String deadlineBy) {
+    private Date deadlineBy;
+
+    Deadline(String taskDetails, Date deadlineBy) {
         super(taskDetails);
         this.deadlineBy = deadlineBy;
     }
@@ -12,10 +15,16 @@ class Deadline extends Task{
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
         if (this.completed) {
-            return "[D][✓] " + taskDetails + " (" + deadlineBy + ")";
+            sb.append("[D][✓] ");
         } else {
-            return "[D][✗] " + taskDetails + " (" + deadlineBy + ")";
+            sb.append("[D][✗] ");
         }
+        sb.append(taskDetails);
+        sb.append (" (");
+        sb.append(ToDoList.outputDateFormat.format(deadlineBy));
+        sb.append(")");
+        return sb.toString();
     }
 }
