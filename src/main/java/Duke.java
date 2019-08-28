@@ -38,7 +38,7 @@ public class Duke {
                 System.out.println("☹ OOPS!!! You need to provide a valid number :-(");
             } catch (DukeException e) {
                 System.out.println("☹ OOPS!!! Something went wrong" + e.getMessage());
-\            } catch (ParseException e) {
+            } catch (ParseException e) {
                 System.out.println("Something went wrong! " + e.getMessage());
             }
         }
